@@ -65,6 +65,10 @@
 	  background-color: #70BCD1;
 	}
 
+	model-viewer#reveal {
+    	--poster-color: transparent;
+    }
+
 
 	button.buttonmodel  {
 		    display: block;
