@@ -60,9 +60,47 @@
 								    
 									
 									<!-- c-1m-2aku-line.p (Max К) -->
-									
-									<model-viewer id="reveal" loading="eager" poster="https://saintgobain.s3mts.ru/MTS-TEST1/SGmodels/Waterproof/waterproofing.base.png" src="https://saintgobain.s3mts.ru/MTS-TEST1/SGmodels/Waterproof/waterproofing.base.glb" ar ar-modes="webxr scene-viewer quick-look fallback" ar-scale="auto" magic-leap camera-controls ios-src="https://saintgobain.s3mts.ru/MTS-TEST1/SGmodels/Waterproof/waterproofing.base.usdz" alt="waterproofing.foundation (Максим Kolbysh)" background-color="##fafafa" camera-controls auto-rotate > </model-viewer>
+									<model-viewer id="reveal" loading="eager" poster="images/c1_m2_akuline.p.png" src="https://saintgobain.s3mts.ru/MTS-TEST1/3dmodels/twxtur2/basicCube3.glb"  ar ar-modes="webxr scene-viewer quick-look fallback" ar-placement="wall" ar-scale="auto" magic-leap camera-controls ios-src="https://saintgobain.s3mts.ru/MTS-TEST1/3dmodels/technical insulation.usdz" alt="c-1m-2aku-line.p (Максим Kolbysh)" background-color="##fafafa" camera-controls auto-rotate > 
+										<button class="Hotspot" slot="hotspot-1" data-position="0.9999999776482582m 0.7075086168440816m 0.5610890584742435m" data-normal="1m 0m 0m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">Вариант выноски 1 👨‍🚒🎵</div>
+    </button>
+    
+    	   
+	<div id="annotation">Например тут логотип <img src="assets/logo.png" alt="LOGO" style="width:42px;height:42px;"></div>
+    </div>
+	<div class="controls">
+    	<div>	
+		<p>Замена текстуры</p>
+		      <select id="diffuse">
+		        <option value="https://saintgobain.s3mts.ru/MTS-TEST1/3dmodels/twxtur2/76b184318401c8c070c3112a39aef959.png">Стандарт</option>
+		        <option value="https://saintgobain.s3mts.ru/MTS-TEST1/3dmodels/twxtur2/металл_1.png">металл_1</option>
+		        <option value="https://saintgobain.s3mts.ru/MTS-TEST1/3dmodels/twxtur2/металл_2.png">металл_2</option>
+		      </select>
+		</div>
+	</div>   
 
+
+									</model-viewer>
+
+									<script type="module">
+										const modelViewerTexture = document.querySelector("model-viewer#reveal");
+
+										modelViewerTexture.addEventListener("load", (ev) => {
+
+										  let material = modelViewerTexture.model.materials[0];
+
+										  let applyPBRTexture = (channel, event) => {
+										    material.pbrMetallicRoughness[channel].texture.source.setURI(event.target.value);
+										  }
+										  
+										  document.querySelector('#diffuse').addEventListener('input', (event) => {
+										    applyPBRTexture('baseColorTexture', event);
+										  });
+										  
+										  
+										})
+
+									</script>	
 									
 									
 									
